@@ -92,7 +92,7 @@ with c1:
 with c2:
     st.info(f"**腔模线宽:** {linewidth_c_1359/1e6:.2f} MHz")
 with c3:
-    st.info(f"**腔精细度:** {Finese_1359:.2f} (无量纲)")
+    st.info(f"**腔精细度:** {Finese_1359:.2f} (MHz)")
 
 st.markdown("#### 1470nm 腔参数")
 c4, c5, c6 = st.columns(3)
@@ -101,7 +101,7 @@ with c4:
 with c5:
     st.info(f"**腔模线宽:** {linewidth_c_1470/1e6:.2f} MHz")
 with c6:
-    st.info(f"**腔精细度:** {Finese_1470:.2f} (无量纲)")
+    st.info(f"**腔精细度:** {Finese_1470:.2f} (MHz)")
 
 st.markdown("---")
 st.subheader("【泵浦光参数】")
