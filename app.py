@@ -83,7 +83,7 @@ with col4:
     st.metric(label="1470nm 腔牵引系数 P", value=f"{P_1470_val:.3f}")
 
 st.markdown("---")
-st.subheader(f"【腔参数评估 (R_1359={R_1359_set}, R_1470={R_1470_set})】")
+st.subheader(f"【双波长腔参数】")
 
 st.markdown("#### 1359nm 腔参数")
 c1, c2, c3 = st.columns(3)
@@ -105,4 +105,4 @@ with c6:
 
 st.markdown("---")
 st.subheader("【泵浦光参数】")
-st.info(f"**泵浦光光强 (I_pump):** {I_pump:.2f} W/m²")
+st.info(f"**泵浦光光强:** {I_pump:.2f} W/m²")
