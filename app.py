@@ -4,6 +4,27 @@ import math
 # 设置网页标题和布局宽度
 st.set_page_config(page_title="Cs原子双波长好坏腔系数计算器", layout="wide")
 
+# 注入自定义 CSS 极致压缩空白间距和减小字号
+st.markdown("""
+<style>
+/* 缩小整体页面顶部空白 */
+.block-container { padding-top: 1.5rem; padding-bottom: 1rem; }
+/* 缩小核心指标(Metric)的数值字号 */
+div[data-testid="stMetricValue"] { font-size: 1.6rem; }
+div[data-testid="stMetricLabel"] { font-size: 0.9rem; }
+/* 缩小各级标题字体和上下边距 */
+h1 { margin-bottom: 0.2rem !important; padding-top: 0rem !important; font-size: 1.8rem !important; }
+h3 { margin-bottom: 0.1rem !important; margin-top: 0.3rem !important; font-size: 1.2rem !important; }
+h4 { margin-bottom: 0.1rem !important; margin-top: 0.2rem !important; font-size: 1.0rem !important; }
+/* 缩小正文字号并缩减行距 */
+p { margin-bottom: 0.1rem !important; font-size: 14px !important; }
+/* 压缩分割线上下边距 */
+hr { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+/* 极致压缩 info 卡片的内边距，让排版更紧凑 */
+div.stAlert { padding: 0.4rem 0.6rem !important; min-height: 0px !important;}
+</style>
+""", unsafe_allow_html=True)
+
 st.title("Cs原子双波长好坏腔系数计算")
 
 # ==================== 【侧边栏：输入参数】 ====================
@@ -83,7 +104,7 @@ with col4:
     st.metric(label="1470nm 腔牵引系数 P", value=f"{P_1470_val:.3f}")
 
 st.markdown("---")
-st.subheader(f"【双波长腔参数】")
+st.subheader("【双波长腔参数】")
 
 st.markdown("#### 1359nm 腔参数")
 c1, c2, c3 = st.columns(3)
@@ -92,7 +113,7 @@ with c1:
 with c2:
     st.info(f"**腔模线宽:** {linewidth_c_1359/1e6:.2f} MHz")
 with c3:
-    st.info(f"**腔精细度:** {Finese_1359:.2f} (MHz)")
+    st.info(f"**腔精细度:** {Finese_1359:.2f} (无量纲)")
 
 st.markdown("#### 1470nm 腔参数")
 c4, c5, c6 = st.columns(3)
@@ -101,7 +122,7 @@ with c4:
 with c5:
     st.info(f"**腔模线宽:** {linewidth_c_1470/1e6:.2f} MHz")
 with c6:
-    st.info(f"**腔精细度:** {Finese_1470:.2f} (MHz)")
+    st.info(f"**腔精细度:** {Finese_1470:.2f} (无量纲)")
 
 st.markdown("---")
 st.subheader("【泵浦光参数】")
