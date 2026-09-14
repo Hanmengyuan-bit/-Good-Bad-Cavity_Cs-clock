@@ -72,38 +72,38 @@ P_1359_val = 1 / (1 + a_1359_val)
 P_1470_val = 1 / (1 + a_1470_val)
 
 # ==================== 【主界面：结果展示】 ====================
-st.subheader("【物理参数输出】")
-col1, col2, col3 = st.columns(3)
+st.subheader("【好坏腔系数和腔牵引系数】")
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.info(f"**泵浦光光强 (I_pump):**\n\n {I_pump:.2f} W/m²")
+    st.metric(label="1359nm 坏腔系数 a", value=f"{a_1359_val:.3f}")
 with col2:
-    st.info(f"**1359nm 增益线宽:** {linewidth_g_1359/1e6:.2f} MHz \n\n (自然宽 {f_L_1359/1e6:.1f} + 多普勒 {Delta_nu_D_1359/1e6:.1f})")
+    st.metric(label="1359nm 腔牵引系数 P", value=f"{P_1359_val:.3f}")
 with col3:
-    st.info(f"**1470nm 增益线宽:** {linewidth_g_1470/1e6:.2f} MHz \n\n (自然宽 {f_L_1470/1e6:.1f} + 多普勒 {Delta_nu_D_1470/1e6:.1f})")
+    st.metric(label="1470nm 坏腔系数 a", value=f"{a_1470_val:.3f}")
+with col4:
+    st.metric(label="1470nm 腔牵引系数 P", value=f"{P_1470_val:.3f}")
 
 st.markdown("---")
-st.subheader(f"【特定反射率测试 (R_1359={R_1359_set}, R_1470={R_1470_set})】")
+st.subheader(f"【腔参数评估 (R_1359={R_1359_set}, R_1470={R_1470_set})】")
 
-# 1359nm 参数行
-st.markdown("#### 1359nm 腔参数评估")
-c1, c2, c3, c4 = st.columns(4)
+st.markdown("#### 1359nm 腔参数")
+c1, c2, c3 = st.columns(3)
 with c1:
-    st.metric(label="腔精细度 (无量纲)", value=f"{Finese_1359:.2f}")
+    st.info(f"**增益线宽:** {linewidth_g_1359/1e6:.2f} MHz \n\n (自然宽 {f_L_1359/1e6:.1f} + 多普勒 {Delta_nu_D_1359/1e6:.1f})")
 with c2:
-    st.metric(label="腔模线宽", value=f"{linewidth_c_1359/1e6:.2f} MHz")
+    st.info(f"**腔模线宽:** {linewidth_c_1359/1e6:.2f} MHz")
 with c3:
-    st.metric(label="坏腔系数 a", value=f"{a_1359_val:.3f}")
-with c4:
-    st.metric(label="腔牵引系数 P", value=f"{P_1359_val:.3f}")
+    st.info(f"**腔精细度:** {Finese_1359:.2f} (无量纲)")
 
-# 1470nm 参数行
-st.markdown("#### 1470nm 腔参数评估")
-c5, c6, c7, c8 = st.columns(4)
+st.markdown("#### 1470nm 腔参数")
+c4, c5, c6 = st.columns(3)
+with c4:
+    st.info(f"**增益线宽:** {linewidth_g_1470/1e6:.2f} MHz \n\n (自然宽 {f_L_1470/1e6:.1f} + 多普勒 {Delta_nu_D_1470/1e6:.1f})")
 with c5:
-    st.metric(label="腔精细度 (无量纲)", value=f"{Finese_1470:.2f}")
+    st.info(f"**腔模线宽:** {linewidth_c_1470/1e6:.2f} MHz")
 with c6:
-    st.metric(label="腔模线宽", value=f"{linewidth_c_1470/1e6:.2f} MHz")
-with c7:
-    st.metric(label="坏腔系数 a", value=f"{a_1470_val:.3f}")
-with c8:
-    st.metric(label="腔牵引系数 P", value=f"{P_1470_val:.3f}")
+    st.info(f"**腔精细度:** {Finese_1470:.2f} (无量纲)")
+
+st.markdown("---")
+st.subheader("【泵浦光参数】")
+st.info(f"**泵浦光光强 (I_pump):** {I_pump:.2f} W/m²")
