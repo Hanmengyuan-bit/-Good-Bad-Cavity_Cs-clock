@@ -2,10 +2,9 @@ import streamlit as st
 import math
 
 # 设置网页标题和布局宽度
-st.set_page_config(page_title="好坏腔双波长主动光钟计算器", layout="wide")
+st.set_page_config(page_title="Cs原子双波长好坏腔系数计算器", layout="wide")
 
-st.title("原子好坏腔双波长主动光频标")
-st.markdown("理论极限设计与参数寻优 (网页计算版)")
+st.title("Cs原子双波长好坏腔系数计算")
 
 # ==================== 【侧边栏：输入参数】 ====================
 st.sidebar.header("参数设置")
